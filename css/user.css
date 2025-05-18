@@ -1,0 +1,2070 @@
+/* 
+ * Gastos Guard - User Dashboard Styles
+ * Updated styling to match design mockup
+ * Added styles for progress bars, budget statuses, expense items, chart containers, and month picker
+ */
+
+/* ===== Base Styles ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a202e;
+    color: #fff;
+    line-height: 1.5;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ===== App Container ===== */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ===== Sidebar Styles ===== */
+.sidebar {
+    width: 220px;
+    background-color: #1e2738;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    border-right: 1px solid #2a344a;
+}
+
+.logo {
+    padding: 0 10px 28px;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    gap: 12px;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ff6b3d;
+    margin: 0;
+}
+
+.nav {
+    margin-top: 20px;
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.nav ul li {
+    padding: 2px 0;
+}
+
+.nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #8792a8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    gap: 12px;
+}
+
+.nav ul li.active a {
+    background-color: rgba(255, 107, 61, 0.1);
+    color: #ff6b3d;
+    border-left-color: #ff6b3d;
+}
+
+.nav ul li a:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.logout {
+    margin-top: auto;
+    padding: 0 53px;
+    background-color: #ff3d3d;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 12px;
+}
+
+.logout a {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    color: white;
+    text-decoration: none;
+    gap: 12px;
+}
+
+.logout a:hover {
+    color: black;
+}
+
+/* ===== Main Content Styles ===== */
+.main-content {
+    flex: 1;
+    padding: 0 20px 20px;
+    overflow-y: auto;
+}
+
+/* ===== Header Styles ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #2a344a;
+    margin-bottom: 20px;
+}
+
+.page-title h1 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #fff;
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    background-color: #2a344a;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 10px 10px 40px;
+    color: #fff;
+    width: 220px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-box .fas {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8792a8;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: -3px;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #ff6b3d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.user-details h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+}
+
+.user-details p {
+    font-size: 12px;
+    color: #8792a8;
+    margin: 0;
+}
+
+/* ===== Content Styles ===== */
+.content {
+    padding: 10px 0;
+}
+
+/* ===== Action Button ===== */
+.action-button {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* ===== Card Styles ===== */
+.card {
+    background-color: #1e2738;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    border: 1px solid #2a344a;
+    overflow: hidden;
+    padding: 0;
+}
+
+.card-header {
+    padding: 20px 28px 16px 28px;
+    border-bottom: 1px solid #2a344a;
+    background: #1e2738;
+    border-radius: 12px 12px 0 0;
+}
+
+.card-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: #fff;
+}
+
+.view-all {
+    color: #ff6b3d;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.card-body {
+    padding: 24px 28px 24px 28px;
+    background: #1e2738;
+    border-radius: 0 0 12px 12px;
+}
+
+/* ===== Spending Overview Styles ===== */
+.total-spent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.total-spent-amount h3 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8792a8;
+    margin: 0 0 5px 0;
+}
+
+.total-spent-amount .amount {
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 5px 0;
+}
+
+.total-spent-amount .balance {
+    font-size: 14px;
+    color: #8792a8;
+    margin: 0;
+}
+
+.comparison span {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    gap: 4px;
+}
+
+.comparison span.trend-positive {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.comparison span.trend-negative {
+    background-color: rgba(234, 84, 85, 0.1);
+    color: #ea5455;
+}
+
+.spending-categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.category-card {
+    background-color: #2a344a;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.category-card h3 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8792a8;
+    margin: 0 0 10px 0;
+}
+
+.category-amount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.category-amount .fas {
+    font-size: 18px;
+}
+
+.category-amount h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #2a344a;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.3s ease-in-out;
+    background-color: #10b981; /* Default green for normal progress */
+}
+
+.budget-progress-normal {
+    background-color: #10b981 !important;
+    opacity: 0.8;
+}
+
+.budget-progress-warning {
+    background-color: #f59e0b !important;
+    opacity: 1;
+    filter: brightness(1.2);
+}
+
+.budget-progress-exceeded {
+    background-color: #ea5455 !important;
+    opacity: 1;
+    filter: brightness(1.4);
+}
+
+/* ===== Chart Containers ===== */
+#expense-chart-container, 
+#daily-average-chart-container, 
+#summary-chart-container, 
+#daily-spending-chart-container,
+#monthly-overview-chart-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* ===== Budget Status Indicators ===== */
+.budget-status {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.status-normal {
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.status-warning {
+    color: #f59e0b;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.status-exceeded {
+    color: #ea5455;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}
+
+/* ===== Two Column Layout ===== */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* ===== Recent Expenses Styles ===== */
+.expense-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.expense-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #2a344a;
+}
+
+.expense-item:last-child {
+    border-bottom: none;
+}
+
+.expense-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.expense-icon .fas {
+    font-size: 18px;
+}
+
+.expense-details {
+    flex: 1;
+}
+
+.expense-details h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+.expense-details p {
+    font-size: 12px;
+    color: #8792a8;
+    margin: 0;
+}
+
+.expense-amount {
+    text-align: right;
+}
+
+.expense-amount h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+/* ===== Daily Spending Styles ===== */
+.daily-average {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 20px;
+}
+
+.daily-average-circle {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #2a344a;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.daily-average-circle h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #fff;
+}
+
+.daily-average-circle p {
+    font-size: 12px;
+    color: #8792a8;
+    margin: 5px 0 0 0;
+}
+
+.daily-breakdown {
+    margin-bottom: 15px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.category-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.category-name {
+    flex: 1;
+    font-size: 14px;
+    color: #8792a8;
+}
+
+.category-percentage {
+    font-size: 14px;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.category-daily {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-align: right;
+    width: 80px;
+}
+
+.info-note {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #8792a8;
+    font-size: 12px;
+}
+
+/* ===== Budget Progress Styles ===== */
+.header-actions .icon-button {
+    background: none;
+    border: none;
+    color: #8792a8;
+    cursor: pointer;
+}
+
+.budget-item {
+    margin-bottom: 15px;
+}
+
+.budget-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.budget-info h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+}
+
+.budget-amount {
+    font-size: 13px;
+    color: #8792a8;
+}
+
+.budget-amount .divider {
+    margin: 0 3px;
+}
+
+#budget-progress-container .budget-progress-item {
+    margin-bottom: 20px;
+}
+
+.budget-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.budget-progress-header h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+}
+
+.budget-progress-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #8792a8;
+}
+
+.budget-progress-bar-container {
+    margin-bottom: 5%;
+    height: 10px;
+    background-color: #2a344a;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.budget-progress-bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px 0;
+    color: #8792a8;
+}
+
+.no-data p {
+    margin-bottom: 15px;
+}
+
+/* ===== Monthly Overview Styles ===== */
+.month-total {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 20px;
+}
+
+.month-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+}
+
+.month-circle h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.month-circle p {
+    font-size: 14px;
+    color: #8792a8;
+    margin: 5px 0 0 0;
+}
+
+.month-circle:before,
+.month-circle:after {
+    content: '';
+    position: absolute;
+    border: 1px solid #2a344a;
+    border-radius: 50%;
+}
+
+.month-circle:before {
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+}
+
+.month-circle:after {
+    top: -25px;
+    left: -25px;
+    right: -25px;
+    bottom: -25px;
+}
+
+.monthly-breakdown .category-item .category-amount {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-align: right;
+    width: 80px;
+}
+
+/* ===== Expense Filters Styles ===== */
+.expense-filters .filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 14px;
+    color: #8792a8;
+    margin-bottom: 5px;
+}
+
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #2a344a;
+    border: 1px solid #2a344a;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+.filter-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238792a8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 30px;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* ===== Action Button ===== */
+.action-button {
+    margin-bottom: 20px;
+}
+
+.btn.primary {
+    background-color: #ff6b3d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn.primary:hover {
+    background-color: #e65a2c;
+}
+
+.btn.secondary {
+    background-color: #6b7280;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn.secondary:hover {
+    background-color: #4b5563;
+}
+
+.btn.danger {
+    background-color: #ea5455;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn.danger:hover {
+    background-color: #c82333;
+}
+
+/* ===== Expense Table Styles ===== */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.expense-table,
+.dark-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensure columns respect fixed widths */
+}
+
+.expense-table th,
+.expense-table td,
+.dark-table th,
+.dark-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.expense-table th,
+.dark-table th {
+    background-color: #2a344a;
+    color: #8792a8;
+    font-weight: 500;
+}
+
+.expense-table td,
+.dark-table td {
+    border-bottom: 1px solid #2a344a;
+    color: #fff;
+}
+
+.expense-table tbody tr:last-child td,
+.dark-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.expense-table .action-btn,
+.dark-table .action-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.expense-table .edit-btn,
+.dark-table .edit-btn {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196F3;
+}
+
+.expense-table .edit-btn:hover,
+.dark-table .edit-btn:hover {
+    background-color: rgba(33, 150, 243, 0.2);
+}
+
+.expense-table .delete-btn,
+.dark-table .delete-btn {
+    background-color: rgba(234, 84, 85, 0.1);
+    color: #ea5455;
+}
+
+.expense-table .delete-btn:hover,
+.dark-table .delete-btn:hover {
+    background-color: rgba(234, 84, 85, 0.2);
+}
+
+/* Fix for Period column to show full dates without overlap */
+.expense-table th:nth-child(5),
+.expense-table td:nth-child(5),
+.dark-table th:nth-child(5),
+.dark-table td:nth-child(5) {
+    width: 300px; /* Fixed width to show full date range (e.g., May 17, 2025 to May 31, 2025) */
+    white-space: nowrap; /* Prevent wrapping */
+    padding-right: 20px; /* Extra padding to avoid clipping */
+}
+
+.expense-table th:nth-child(6),
+.expense-table td:nth-child(6),
+.dark-table th:nth-child(6),
+.dark-table td:nth-child(6) {
+    width: 200px; /* Fixed width for Status column to prevent overlap */
+    max-width: 200px; /* Ensure it doesn't expand */
+    overflow: hidden; /* Hide excess if any */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.expense-table td:nth-child(6) .progress-bar,
+.dark-table td:nth-child(6) .progress-bar {
+    width: 100%; /* Ensure progress bar stays within its column */
+    display: block; /* Force block layout to respect width */
+    margin-bottom: 5px; /* Space before the status text */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .expense-table th:nth-child(5),
+    .expense-table td:nth-child(5),
+    .dark-table th:nth-child(5),
+    .dark-table td:nth-child(5) {
+        width: 250px; /* Adjusted for tablet screens */
+    }
+
+    .expense-table th:nth-child(6),
+    .expense-table td:nth-child(6),
+    .dark-table th:nth-child(6),
+    .dark-table td:nth-child(6) {
+        width: 120px; /* Adjusted for tablet screens */
+        max-width: 120px;
+    }
+
+    .expense-table td:nth-child(6) .progress-bar,
+    .dark-table td:nth-child(6) .progress-bar {
+        width: 90%; /* Slightly reduce on tablet to fit layout */
+    }
+}
+
+@media (max-width: 480px) {
+    .expense-table th:nth-child(5),
+    .expense-table td:nth-child(5),
+    .dark-table th:nth-child(5),
+    .dark-table td:nth-child(5) {
+        width: 200px; /* Adjusted for mobile screens */
+    }
+
+    .expense-table th:nth-child(6),
+    .expense-table td:nth-child(6),
+    .dark-table th:nth-child(6),
+    .dark-table td:nth-child(6) {
+        width: 100px; /* Adjusted for mobile screens */
+        max-width: 100px;
+    }
+
+    .expense-table td:nth-child(6) .progress-bar,
+    .dark-table td:nth-child(6) .progress-bar {
+        width: 80%; /* Further reduce on mobile */
+    }
+}
+
+/* Ensure the table is scrollable on smaller screens */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Specific styles for #usersTable in admin User Management */
+#usersTable {
+    width: 100%;
+    background: #232a36;
+    color: #f1f1f1;
+    border-radius: 12px;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    table-layout: auto; /* Allow columns to adjust based on content */
+}
+
+#usersTable th,
+#usersTable td {
+    padding: 12px 16px; /* Consistent padding for better spacing */
+    border-bottom: 1px solid #31394a;
+    vertical-align: middle;
+    text-align: left; /* Default left alignment */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+#usersTable th {
+    background: #232a36;
+    color: #bfc9da;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+#usersTable tr {
+    transition: background 0.2s;
+}
+
+#usersTable tr:hover {
+    background: #2e3748;
+}
+
+/* Column-specific width adjustments for balanced spacing */
+#usersTable th:nth-child(1), /* User */
+#usersTable td:nth-child(1) {
+    min-width: 110px; /* Adjusted width for User initials and name */
+    white-space: nowrap;
+}
+
+#usersTable th:nth-child(2), /* Email */
+#usersTable td:nth-child(2) {
+    min-width: 250px; /* Reduced width to balance with other columns */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+#usersTable th:nth-child(3), /* Join Date */
+#usersTable td:nth-child(3) {
+    min-width: 130px; /* Adjusted width for date */
+    white-space: nowrap;
+}
+
+#usersTable th:nth-child(4), /* Status */
+#usersTable td:nth-child(4) {
+    min-width: 110px; /* Adjusted width for status badge */
+    text-align: center; /* Center-align status */
+}
+
+#usersTable th:nth-child(5), /* Expenses */
+#usersTable td:nth-child(5) {
+    min-width: 90px; /* Adjusted width for expenses count */
+    text-align: center;
+}
+
+#usersTable th:nth-child(6), /* Total Spent */
+#usersTable td:nth-child(6) {
+    min-width: 110px; /* Adjusted width for currency amount */
+    text-align: right; /* Right-align currency */
+}
+
+#usersTable th:nth-child(7), /* Actions */
+#usersTable td:nth-child(7) {
+    min-width: 160px; /* Adjusted width to fit icons in a row */
+    text-align: center; /* Center-align actions */
+}
+
+/* Ensure badges and action buttons don't overlap */
+#usersTable .badge {
+    display: inline-block;
+    padding: 6px 16px; /* Consistent padding for badges */
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    white-space: nowrap;
+    background: #34c759; /* Match Active badge color */
+}
+
+/* Style for the action buttons container to align icons in a row */
+#usersTable .action-buttons {
+    display: flex;
+    flex-direction: row; /* Explicitly set to row */
+    justify-content: center; /* Center icons horizontally */
+    align-items: center; /* Vertically align icons */
+    gap: 10px; /* Space between icons */
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+
+#usersTable .action-btn {
+    background: none;
+    border: none;
+    color: #bfc9da;
+    font-size: 16px; /* Slightly smaller icons for better fit */
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 4px; /* Reduced padding for tighter icon spacing */
+    margin: 0; /* Remove margin to avoid extra spacing */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#usersTable .action-btn:hover {
+    color: #ff7a3d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    #usersTable th:nth-child(2),
+    #usersTable td:nth-child(2) {
+        min-width: 220px; /* Slightly reduce email width on tablets */
+    }
+
+    #usersTable th:nth-child(7),
+    #usersTable td:nth-child(7) {
+        min-width: 140px; /* Reduce actions width */
+    }
+}
+
+@media (max-width: 768px) {
+    #usersTable th:nth-child(1),
+    #usersTable td:nth-child(1) {
+        min-width: 90px;
+    }
+
+    #usersTable th:nth-child(2),
+    #usersTable td:nth-child(2) {
+        min-width: 180px; /* Further reduce on smaller tablets */
+    }
+
+    #usersTable th:nth-child(3),
+    #usersTable td:nth-child(3) {
+        min-width: 110px;
+    }
+
+    #usersTable th:nth-child(4),
+    #usersTable td:nth-child(4) {
+        min-width: 90px;
+    }
+
+    #usersTable th:nth-child(5),
+    #usersTable td:nth-child(5) {
+        min-width: 70px;
+    }
+
+    #usersTable th:nth-child(6),
+    #usersTable td:nth-child(6) {
+        min-width: 90px;
+    }
+
+    #usersTable th:nth-child(7),
+    #usersTable td:nth-child(7) {
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    #usersTable th:nth-child(1),
+    #usersTable td:nth-child(1) {
+        min-width: 70px;
+    }
+
+    #usersTable th:nth-child(2),
+    #usersTable td:nth-child(2) {
+        min-width: 150px; /* Minimum width on mobile */
+    }
+
+    #usersTable th:nth-child(3),
+    #usersTable td:nth-child(3) {
+        min-width: 90px;
+    }
+
+    #usersTable th:nth-child(4),
+    #usersTable td:nth-child(4) {
+        min-width: 70px;
+    }
+
+    #usersTable th:nth-child(5),
+    #usersTable td:nth-child(5) {
+        min-width: 60px;
+    }
+
+    #usersTable th:nth-child(6),
+    #usersTable td:nth-child(6) {
+        min-width: 70px;
+    }
+
+    #usersTable th:nth-child(7),
+    #usersTable td:nth-child(7) {
+        min-width: 100px;
+    }
+}
+
+/* ===== Modal Styles ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+.modal-content {
+    background-color: #1e2738;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    position: relative;
+    border: 1px solid #2a344a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    opacity: 1;
+}
+
+.modal[style*="display: flex"] .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.close-modal {
+    cursor: pointer;
+    color: #8792a8;
+    font-size: 20px;
+}
+
+.close-modal:hover {
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #8792a8;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #2a344a;
+    border: 1px solid #2a344a;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238792a8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 30px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.message.success {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.message.error {
+    background-color: rgba(234, 84, 85, 0.1);
+    color: #ea5455;
+}
+
+/* ===== Confirmation Modal Styles ===== */
+.confirmation-modal-wrapper {
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmation-modal {
+    max-width: 400px;
+}
+
+.confirmation-modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.confirmation-modal .warning-icon {
+    font-size: 20px;
+    color: #ef4444;
+}
+
+.confirmation-modal .modal-body p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+}
+
+.confirmation-modal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ===== Success Modal Styles ===== */
+.success-modal-wrapper {
+    align-items: center;
+    justify-content: center;
+}
+
+.success-modal {
+    max-width: 400px;
+}
+
+.success-modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.success-modal .success-icon {
+    font-size: 20px;
+    color: #10b981;
+}
+
+.success-modal .modal-body p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* ===== System Message Modal Styles ===== */
+.system-modal-wrapper {
+    align-items: center;
+    justify-content: center;
+}
+
+.system-modal {
+    max-width: 400px;
+}
+
+.system-modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.system-modal .success-icon {
+    font-size: 40px;
+    color: #10b981;
+    margin-bottom: 15px;
+}
+
+.system-modal .error-icon {
+    font-size: 40px;
+    color: #ea5455;
+    margin-bottom: 15px;
+}
+
+.system-modal .modal-body p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* ===== Reports Design ===== */
+
+/* Month Selector Styles */
+.month-selector {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.month-selector .filter-group {
+    width: 200px;
+}
+
+.month-selector .month-input {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #ff6b3d;
+    border: 1px solid #2a344a;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.month-selector .month-input:focus {
+    border-color: #ff6b3d;
+    outline: none;
+}
+
+/* Fix for browsers that don't support input[type="month"] properly */
+.month-selector .month-input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Custom Month Selector with Calendar Icon */
+.custom-month-selector {
+    position: relative;
+    width: 200px;
+}
+
+.custom-month-selector .calendar-icon {
+    position: absolute;
+    left: 40px;
+    top: 71%;
+    transform: translateY(-50%);
+    color: #fff;
+    z-index: 1;
+    pointer-events: none; /* Allows clicks to pass through to the input */
+}
+
+.custom-month-selector .month-input {
+    width: 19%;
+    padding: 8px 12px 8px 80px; /* Increased left padding for the icon */
+    background-color: #ff6b3d;
+    border: 1px solid #2a344a;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    appearance: none; /* Removes default browser styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.custom-month-selector .month-input:focus {
+    border-color: #ff6b3d;
+    outline: none;
+}
+
+/* Hide the default calendar icon */
+.custom-month-selector .month-input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+/* For non-webkit browsers */
+.custom-month-selector .month-input::-moz-calendar-picker-indicator {
+    opacity: 0;
+}
+
+/* Chart Containers */
+#spending-chart-container,
+#trends-chart-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Top Categories Styles */
+.category-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.category-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.category-name {
+    flex: 1;
+    font-size: 14px;
+    color: #8792a8;
+    min-width: 100px;
+}
+
+.category-amount {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.category-change {
+    font-size: 12px;
+    color: #10b981;
+    margin-right: 15px;
+}
+
+.category-change.negative {
+    color: #ea5455;
+}
+
+.category-progress-bar-container {
+    width: 100%;
+    background: #2d3748;
+    border-radius: 5px;
+    height: 8px;
+    margin-top: 5px;
+}
+
+.category-progress-bar {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+/* Ensure two-column layout consistency */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Remove Old System Message Styles ===== */
+.system-message,
+.floating-message {
+    display: none;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1200px) {
+    .spending-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #2a344a;
+        padding: 10px 0;
+    }
+
+    .logo {
+        padding: 10px 15px;
+    }
+
+    .nav {
+        margin-top: 10px;
+    }
+
+    .nav ul {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .nav ul li a {
+        padding: 10px 15px;
+        white-space: nowrap;
+    }
+
+    .logout {
+        padding: 10px 15px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .spending-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-filters .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group {
+        min-width: 100%;
+    }
+
+    .expense-table th,
+    .expense-table td,
+    .dark-table th,
+    .dark-table td {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .expense-table .action-btn,
+    .dark-table .action-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    .modal-content {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title h1 {
+        font-size: 20px;
+    }
+
+    .btn.primary,
+    .btn.secondary,
+    .btn.danger {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .card-header h2 {
+        font-size: 14px;
+    }
+
+    .total-spent-amount .amount {
+        font-size: 24px;
+    }
+
+    .daily-average-circle,
+    .month-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .daily-average-circle h2,
+    .month-circle h2 {
+        font-size: 18px;
+    }
+
+    .daily-average-circle p,
+    .month-circle p {
+        font-size: 10px;
+    }
+
+    .category-card {
+        padding: 10px;
+    }
+
+    .category-amount h4 {
+        font-size: 16px;
+    }
+}
+
+/* Make confirm-balance-modal appear above edit-balance-modal */
+#confirm-balance-modal {
+    z-index: 2000 !important;
+}
+
+/* Table styles */
+.dark-table {
+    width: 100%;
+    background: #232a36;
+    color: #f1f1f1;
+    border-radius: 12px;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+.dark-table th, .dark-table td {
+    padding: 20px 12px;
+    border-bottom: 1px solid #31394a;
+    vertical-align: middle;
+}
+.dark-table th {
+    background: #232a36;
+    color: #bfc9da;
+    font-weight: 600;
+    font-size: 15px;
+}
+.dark-table tr {
+    transition: background 0.2s;
+}
+.dark-table tr:hover {
+    background: #2e3748;
+}
+
+/* User avatar with initials */
+.user-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ff7a3d;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.user-name {
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Status badges */
+.badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+}
+.badge-active {
+    background: #2ecc71;
+}
+.badge-inactive {
+    background: #e74c3c;
+}
+.badge-pending {
+    background: #f1c40f;
+    color: #232a36;
+}
+
+/* Action buttons */
+.action-btn {
+    background: none;
+    border: none;
+    color: #bfc9da;
+    font-size: 18px;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.action-btn:hover {
+    color: #ff7a3d;
+}
+
+/* Search, filter, sort controls */
+.user-controls {
+    margin-bottom: 18px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.user-controls .search-box {
+    flex: 1;
+    max-width: 320px;
+    position: relative;
+}
+.user-controls .search-box input {
+    width: 100%;
+    padding-left: 36px;
+}
+.user-controls .search-box .fas {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8792a8;
+    font-size: 16px;
+}
+
+#usersTable.dataTable,
+#usersTable.dataTable th,
+#usersTable.dataTable td,
+#usersTable.dataTable thead th,
+#usersTable.dataTable tbody td,
+.dataTables_wrapper .dataTables_scrollBody {
+    background: #1e2738 !important;
+    color: #f1f1f1 !important;
+    border-color: #31394a !important;
+}
+#usersTable.dataTable thead th {
+    color: #bfc9da !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    border-bottom: 1px solid #31394a !important;
+}
+#usersTable.dataTable tbody tr {
+    background: transparent !important;
+    transition: background 0.2s;
+}
+#usersTable.dataTable tbody tr:hover {
+    background: #2e3748 !important;
+}
+#usersTable.dataTable.stripe tbody tr.odd,
+#usersTable.dataTable.display tbody tr.odd {
+    background-color: transparent !important;
+}
+#usersTable .action-btn {
+    background: none !important;
+    border: none !important;
+    color: #bfc9da !important;
+    font-size: 18px !important;
+    margin: 0 4px !important;
+    cursor: pointer !important;
+    transition: color 0.2s !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+#usersTable .action-btn.view-btn {
+    color: #2ecc71 !important;
+}
+#usersTable .action-btn.delete-btn {
+    color: #ea5455 !important;
+}
+#usersTable .action-btn:hover {
+    color: #ff7a3d !important;
+    background: #232a36 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background: #31394a !important;
+    color: #bfc9da !important;
+    border: none !important;
+    border-radius: 6px !important;
+    margin: 0 2px !important;
+    padding: 6px 12px !important;
+    cursor: pointer !important;
+    transition: background 0.2s, color 0.2s !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: #ff7a3d !important;
+    color: #fff !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #ff944d !important;
+    color: #fff !important;
+}
+.dataTables_info {
+    color: #bfc9da !important;
+    font-size: 14px !important;
+    font-family: 'Poppins', sans-serif !important;
+    margin-top: 10px !important;
+}
+#usersTable.dataTable, #usersTable.dataTable th, #usersTable.dataTable td {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Status dropdown should match button design */
+.status-dropdown {
+    background: #31394a;
+    color: #f1f1f1;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 15px;
+    height: 40px;
+    font-family: 'Poppins', sans-serif;
+    appearance: none;
+    min-width: 120px;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.user-controls .status-dropdown {
+    margin-left: 0;
+}
+
+/* Make user avatar and name always horizontal in table */
+.user-cell, .dark-table td .user-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    flex-shrink: 0;
+}
+.user-name {
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+/* Force user avatar and name to be in a row, even in DataTables */
+td .user-cell, td.user-cell, .user-cell {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: nowrap !important;
+}
+td .user-avatar {
+    flex-shrink: 0 !important;
+}
+td .user-name {
+    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+#addUserModal {
+    z-index: 2000 !important;
+}
+#addUserModal .modal-overlay {
+    z-index: 2001 !important;
+    background: rgba(35, 42, 54, 0.95);
+}
+#addUserModal .modal-content {
+    z-index: 2002 !important;
+    position: relative;
+}
+
+/* Hamburger Menu Styles */
+.sidebar .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #8792a8;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger:hover,
+.hamburger.active {
+    color: #ff6b3d;
+}
+
+.nav,
+.logout {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    .nav.open {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .logout {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    .logout.open {
+        max-height: 60px;
+        opacity: 1;
+    }
+
+    .nav ul {
+        display: block;
+        overflow: visible;
+    }
+
+    .nav li {
+        margin: 10px 0;
+    }
+
+    /* Basic Responsiveness Fixes */
+    .main-content {
+        padding: 15px;
+    }
+
+    .content {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Prevent horizontal scrollbars */
+    .app-container,
+    .main-content,
+    .content,
+    .card,
+    .table-responsive {
+        overflow-x: hidden;
+    }
+}
+
+/* Very Small Screens */
+@media screen and (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+    }
+
+    .header-right {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .user-info {
+        text-align: right;
+    }
+}

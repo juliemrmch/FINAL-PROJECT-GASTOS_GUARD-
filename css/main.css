@@ -1,0 +1,353 @@
+/* 
+ * Gastos Guard - Main Shared Styles
+ */
+
+/* ===== Reset ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== Variables ===== */
+:root {
+    /* Primary Colors */
+    --primary-color: #ff6b3d;
+    --primary-gradient: linear-gradient(to right, #ff6b3d, #ff3d5e);
+    
+    /* Text Colors */
+    --text-dark: #1e293b;
+    --text-medium: #67748e;
+    --text-light: #94a3b8;
+    
+    /* Background Colors */
+    --bg-main: #1a202e;
+    --bg-card: #1e2738;
+    --bg-sidebar: #1e2738;
+    --bg-element: #2a344a;
+    
+    /* Border & Shadow */
+    --border-light: #2a344a;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    /* Status Colors */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+    
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+}
+
+/* ===== Global Styles ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-main);
+    color: #fff;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #e25a30;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== Button Styles ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 61, 0.3);
+}
+
+.btn-outline {
+    border: 1px solid var(--border-light);
+    background: transparent;
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ===== Form Elements ===== */
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-size: 14px;
+    font-weight: 500;
+    color: #8792a8;
+}
+
+.form-control {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    background-color: var(--bg-element);
+    color: #fff;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* ===== Card Style ===== */
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    overflow: hidden; /* Ensure card respects child overflow */
+}
+
+.card-body {
+    padding: var(--space-md);
+    width: 100%;
+    overflow-x: visible; /* Allow table to overflow card if needed */
+}
+
+/* ===== Utilities ===== */
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.gap-2 {
+    gap: var(--space-sm);
+}
+
+.gap-4 {
+    gap: var(--space-md);
+}
+
+.mt-2 {
+    margin-top: var(--space-sm);
+}
+
+.mt-4 {
+    margin-top: var(--space-md);
+}
+
+.mb-4 {
+    margin-bottom: var(--space-md);
+}
+
+.py-2 {
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+}
+
+.px-4 {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}
+
+/* ===== Font Awesome Icons ===== */
+.fas {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* ===== Responsive Container ===== */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+}
+
+/* ===== Trend Indicators ===== */
+.trend-positive {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.trend-negative {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+/* ===== Progress bars ===== */
+.progress-bar {
+    height: 6px;
+    background-color: #1e2738;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 3px;
+}
+
+/* ===== Modal Overlay Utilities ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 400px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-md);
+}
+
+.modal-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: #fff;
+}
+
+.modal-body {
+    margin-bottom: var(--space-md);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-sm);
+}
+
+.close-modal {
+    cursor: pointer;
+    font-size: 24px;
+    color: #8792a8;
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+    color: #fff;
+}
+
+/* ===== Table Responsive ===== */
+.table-responsive {
+    overflow-x: auto !important; /* Override any conflicting overflow rules */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+    min-height: 0.01%; /* Prevents content collapse */
+    width: 100%;
+    display: block; /* Ensure it acts as a block element */
+    -ms-overflow-style: auto; /* Ensure scrollbar in IE/Edge */
+    scrollbar-width: auto; /* Ensure scrollbar in Firefox */
+}
+
+.table-responsive::-webkit-scrollbar {
+    display: block; /* Ensure scrollbar visibility in Chrome/Safari */
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: #4a5b7c;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #2a344a;
+}
+
+.expense-table {
+    width: 100%;
+    min-width: 1000px; /* Increased to ensure all columns and actions are scrollable */
+    border-collapse: collapse;
+    table-layout: fixed; /* Maintains column structure */
+}
+
+.expense-table th,
+.expense-table td {
+    white-space: nowrap; /* Prevents text wrapping */
+    padding: var(--space-sm) var(--space-md); /* Consistent padding */
+}
